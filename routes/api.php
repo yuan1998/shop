@@ -26,6 +26,13 @@ $api->version( 'v1', [
         'expires' => config('api.rate_limits.access.expires'),
     ],function ($api) {
 
+        $api->post('weapp/auth','WeappAuthController@weappStore')
+            ->name('api.weapp.auth');
+
+
+        $api->post('weapp/check','WeappAuthController@check')
+            ->name('api.weapp.check');
+
         /**
          *  登录才能调用的接口.
          */
